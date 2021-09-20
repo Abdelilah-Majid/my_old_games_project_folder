@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Zombie Long Death-SoundBible.com-554299929.wav-562abf6c52c4c65532da1d0b52facfb7.sample"
+
+[deps]
+
+source_file="res://assets/sound/Zombie Long Death-SoundBible.com-554299929.wav"
+dest_files=[ "res://.import/Zombie Long Death-SoundBible.com-554299929.wav-562abf6c52c4c65532da1d0b52facfb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

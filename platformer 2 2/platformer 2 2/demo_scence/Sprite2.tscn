@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprits/player/fire_ball_attack/adventurer-fire_ball_attack.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Sprite2" type="AnimatedSprite"]
+scale = Vector2( 3.04, 3.24 )
+frames = SubResource( 1 )

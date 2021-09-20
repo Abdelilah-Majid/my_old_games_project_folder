@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/scene_0.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="scoreLabel" type="Label" parent="."]
+margin_left = 218.961
+margin_top = 15.8667
+margin_right = 263.961
+margin_bottom = 93.8667
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="messageLabel" type="Label" parent="."]
+margin_left = 76.1604
+margin_top = 231.654
+margin_right = 412.16
+margin_bottom = 309.654
+custom_fonts/font = SubResource( 2 )
+text = "dodge the
+  creeps!"
+
+[node name="startButton" type="Button" parent="."]
+margin_left = 82.507
+margin_top = 528.362
+margin_right = 94.507
+margin_bottom = 548.362
+rect_scale = Vector2( 7.51999, 3.92 )
+text = "start"
+
+[node name="messageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
+[connection signal="timeout" from="messageTimer" to="." method="_on_messageTimer_timeout"]

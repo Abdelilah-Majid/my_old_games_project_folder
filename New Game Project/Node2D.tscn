@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=1]
+[ext_resource path="res://Panel.gd" type="Script" id=2]
+[ext_resource path="res://ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprits/sprits.png" type="Texture" id=4]
+[ext_resource path="res://sprits/ball.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 65.2366, 10 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 452.246
+margin_top = -2.07558
+margin_right = 556.246
+margin_bottom = 61.9244
+script = ExtResource( 2 )
+x = [ null ]
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 7.8114
+margin_top = 6.75471
+margin_right = 93.8114
+margin_bottom = 21.7547
+text = "this is a label"
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 57.1701
+margin_top = 33.6226
+margin_right = 98.1701
+margin_bottom = 53.6226
+
+[node name="Label2" type="Label" parent="Panel"]
+margin_left = 156.385
+margin_top = 30.9513
+margin_right = 196.385
+margin_bottom = 44.9513
+
+[node name="balls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Node2D" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 585.482, 72.987 )
+
+[node name="Node2D2" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 437.922, 57.1202 )
+
+[node name="Node2D3" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 782.23, 69.8136 )
+
+[node name="Node2D4" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 396.668, 69.8136 )
+
+[node name="Node2D5" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 494.645, 76.8743 )
+
+[node name="Node2D6" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 691.789, 99.9604 )
+
+[node name="Node2D7" parent="balls" instance=ExtResource( 3 )]
+position = Vector2( 247.521, 84.0937 )
+
+[node name="walls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 553.749, 276.081 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 831.417, 122.174 )
+rotation = -1.53193
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D2"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 201.508, 115.827 )
+rotation = 1.63995
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D3"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 679.096, 274.495 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D4"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 458.549, 276.081 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D5"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D5"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 341.135, 276.081 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D6"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D6"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 238.001, 230.068 )
+rotation = 0.839658
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D7"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D7"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 786.99, 230.068 )
+rotation = -0.813769
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D8"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D8"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 449.029, 147.561 )
+rotation = -0.813769
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D9"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D9"]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="walls"]
+editor/display_folded = true
+position = Vector2( 550.576, 142.801 )
+rotation = -2.445
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D10"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="walls/StaticBody2D10"]
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 110.772, 73.0085 )
+texture = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+[connection signal="pressed" from="Panel/Button" to="Panel" method="_on_Button_pressed"]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://code/wizard/enemy(wizard).gd" type="Script" id=1]
+[ext_resource path="res://sprits/wizard_enemy/wizard_test2.png" type="Texture" id=2]
+[ext_resource path="res://sprits/wizard_enemy/wizard_test.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 23.8759
+height = 48.0529
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( -7.47224, 10.7934 )
+b = Vector2( -969.822, 10.9968 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( 14.7085, 1.4727 )
+b = Vector2( 1174.65, 2.54364 )
+
+[node name="wizard" type="KinematicBody2D" groups=[
+"enemy",
+]]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -22.7013, 0.463295 )
+enabled = true
+
+[node name="wall_wait" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="choting_distance_left" type="RayCast2D" parent="."]
+position = Vector2( -0.39978, 0.174561 )
+rotation = 1.5708
+scale = Vector2( 3.29476, 20.0311 )
+enabled = true
+
+[node name="choting_distance_right" type="RayCast2D" parent="."]
+position = Vector2( -2.78918, 2.78958 )
+rotation = -1.5708
+scale = Vector2( -1.60817, 23.5073 )
+enabled = true
+
+[node name="mana_position" type="Position2D" parent="."]
+position = Vector2( -34.0093, 3.8147e-06 )
+
+[node name="Area_left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_left"]
+position = Vector2( -28.9855, -12.2359 )
+shape = SubResource( 4 )
+
+[node name="Area_right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_right"]
+shape = SubResource( 5 )
+
+[node name="ball_wait" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="choting_wait" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="wall_wait" to="." method="_on_wall_wait_timeout"]
+[connection signal="body_entered" from="Area_left" to="." method="_on_Area_left_body_entered"]
+[connection signal="body_exited" from="Area_left" to="." method="_on_Area_left_body_exited"]
+[connection signal="body_entered" from="Area_right" to="." method="_on_Area_right_body_entered"]
+[connection signal="body_exited" from="Area_right" to="." method="_on_Area_right_body_exited"]
+[connection signal="timeout" from="ball_wait" to="." method="_on_ball_wait_timeout"]
+[connection signal="timeout" from="choting_wait" to="." method="_on_choting_wait_timeout"]

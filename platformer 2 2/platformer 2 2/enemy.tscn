@@ -1,0 +1,87 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://enemy.gd" type="Script" id=1]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk1.png" type="Texture" id=2]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk2.png" type="Texture" id=3]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk3.png" type="Texture" id=4]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk4.png" type="Texture" id=5]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk5.png" type="Texture" id=6]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk6.png" type="Texture" id=7]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk7.png" type="Texture" id=8]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk9.png" type="Texture" id=9]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk10.png" type="Texture" id=10]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk8.png" type="Texture" id=11]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk11.png" type="Texture" id=12]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk12.png" type="Texture" id=13]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk13.png" type="Texture" id=14]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack1.png" type="Texture" id=15]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack2.png" type="Texture" id=16]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack3.png" type="Texture" id=17]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack4.png" type="Texture" id=18]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack5.png" type="Texture" id=19]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack6.png" type="Texture" id=20]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack7.png" type="Texture" id=21]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack8.png" type="Texture" id=22]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack9.png" type="Texture" id=23]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack10.png" type="Texture" id=24]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack11.png" type="Texture" id=25]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack12.png" type="Texture" id=26]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack13.png" type="Texture" id=27]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack14.png" type="Texture" id=28]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack15.png" type="Texture" id=29]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack16.png" type="Texture" id=30]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack17.png" type="Texture" id=31]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack18.png" type="Texture" id=32]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "attack",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 21.9943
+height = 46.374
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( -0.319597, 0.489016 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "attack"
+frame = 17
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.64283, 20.754 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 14.966, 0.784277 )
+scale = Vector2( 1, 1.36 )
+enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.21
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]

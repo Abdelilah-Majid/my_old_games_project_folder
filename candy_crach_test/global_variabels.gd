@@ -1,0 +1,4 @@
+extends Node
+var upper_left_posions_full=false
+var upper_midl_posions_full=false
+var upper_right_posions_full=false

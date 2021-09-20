@@ -1,0 +1,238 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://sprits/Sky.png" type="Texture" id=2]
+[ext_resource path="res://sprits/player/idle/adventurer-idle-00.png" type="Texture" id=3]
+[ext_resource path="res://sprits/player/idle/adventurer-idle-01.png" type="Texture" id=4]
+[ext_resource path="res://sprits/player/idle/adventurer-idle-02.png" type="Texture" id=5]
+[ext_resource path="res://sprits/player/idle/adventurer-idle-03.png" type="Texture" id=6]
+[ext_resource path="res://sprits/player/jamping/adventurer-jump-03.png" type="Texture" id=7]
+[ext_resource path="res://sprits/player/run/adventurer-run-00.png" type="Texture" id=8]
+[ext_resource path="res://sprits/player/run/adventurer-run-01.png" type="Texture" id=9]
+[ext_resource path="res://sprits/player/run/adventurer-run-02.png" type="Texture" id=10]
+[ext_resource path="res://sprits/player/run/adventurer-run-03.png" type="Texture" id=11]
+[ext_resource path="res://sprits/player/run/adventurer-run-04.png" type="Texture" id=12]
+[ext_resource path="res://sprits/player/run/adventurer-run-05.png" type="Texture" id=13]
+[ext_resource path="res://sprits/player/attack/adventurer-attack1-00.png" type="Texture" id=14]
+[ext_resource path="res://sprits/player/attack/adventurer-attack1-01.png" type="Texture" id=15]
+[ext_resource path="res://sprits/player/attack/adventurer-attack1-03.png" type="Texture" id=16]
+[ext_resource path="res://sprits/player/attack/adventurer-attack1-04.png" type="Texture" id=17]
+[ext_resource path="res://sprits/player/attack/adventurer-attack1-02.png" type="Texture" id=18]
+[ext_resource path="res://demo_scence/Sprite2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/sound/swish_2.wav" type="AudioStream" id=20]
+[ext_resource path="res://GUI.gd" type="Script" id=21]
+[ext_resource path="res://assets/GUI/label_HP_bg.png" type="Texture" id=22]
+[ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://assets/GUI/label_HP.png" type="Texture" id=24]
+[ext_resource path="res://assets/GUI/lifebar_bg.png" type="Texture" id=25]
+[ext_resource path="res://assets/GUI/lifebar_fill.png" type="Texture" id=26]
+[ext_resource path="res://sprits/wizard_enemy/red_shoted_mana.png" type="Texture" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "atack",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 27.1675
+height = 42.72
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32.5063, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 88.3997, 10 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 45
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 70
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 70
+font_data = ExtResource( 23 )
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 27.6581
+height = 42.609
+
+[node name="player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 974.974, 613.34 )
+scale = Vector2( 3.07172, 1.93397 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3.04, 3.24 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="Sprite2" parent="." instance=ExtResource( 19 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.60999, 10.83 )
+shape = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 41.7514, -1.46303 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -224 )
+current = true
+zoom = Vector2( 1.5, 1 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 0.8
+
+[node name="entred2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entred2"]
+position = Vector2( -3.75058, 0.798948 )
+shape = SubResource( 3 )
+
+[node name="attack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( -3.67929, 1.19328 )
+shape = SubResource( 4 )
+
+[node name="A" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+margin_right = 400.0
+margin_bottom = 53.0
+script = ExtResource( 21 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer2/Control"]
+
+[node name="Timer" type="Timer" parent="CanvasLayer2/Control"]
+wait_time = 0.25
+one_shot = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer2/Control"]
+margin_left = 33.0
+margin_top = 33.0
+margin_right = 128.0
+margin_bottom = 68.0
+texture = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="CanvasLayer2/Control"]
+margin_left = 82.2336
+margin_top = 36.878
+margin_right = 130.234
+margin_bottom = 72.878
+custom_fonts/font = SubResource( 5 )
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control"]
+margin_left = 41.8596
+margin_top = 38.6328
+margin_right = 81.8596
+margin_bottom = 78.6328
+texture = ExtResource( 24 )
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer2/Control"]
+margin_left = 131.408
+margin_top = 35.4013
+margin_right = 527.408
+margin_bottom = 88.4013
+rect_scale = Vector2( 0.644654, 0.576935 )
+texture_under = ExtResource( 25 )
+texture_progress = ExtResource( 26 )
+
+[node name="P-M_nin" type="NinePatchRect" parent="CanvasLayer2/Control"]
+margin_left = 1696.0
+margin_top = 14.6817
+margin_right = 1736.0
+margin_bottom = 54.6817
+rect_scale = Vector2( 5.03357, 1.28385 )
+texture = ExtResource( 22 )
+
+[node name="P-N_png" type="TextureRect" parent="CanvasLayer2/Control"]
+margin_left = 1728.0
+margin_top = 32.0
+margin_right = 1768.0
+margin_bottom = 72.0
+rect_scale = Vector2( 3.51434, 3.19371 )
+texture = ExtResource( 27 )
+
+[node name="Label2" type="Label" parent="CanvasLayer2/Control"]
+margin_left = 1792.0
+margin_top = 14.6817
+margin_right = 1891.0
+margin_bottom = 86.6817
+custom_fonts/font = SubResource( 6 )
+text = "0"
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+margin_left = 807.495
+margin_top = 8.80902
+margin_right = 968.495
+margin_bottom = 87.809
+custom_fonts/font = SubResource( 7 )
+text = "scor :"
+
+[node name="Label2" type="Label" parent="CanvasLayer2"]
+margin_left = 1039.47
+margin_top = 14.6817
+margin_right = 1079.47
+margin_bottom = 93.6817
+custom_fonts/font = SubResource( 8 )
+text = "0000"
+
+[node name="body_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body_area"]
+position = Vector2( -3.58485, 10.3961 )
+shape = SubResource( 9 )
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="CanvasLayer2/Control/Timer" to="CanvasLayer2/Control" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="body_area" to="." method="_on_body_area_area_entered"]

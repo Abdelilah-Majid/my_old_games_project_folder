@@ -1,0 +1,236 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprits/dirt_tile_set.tres" type="TileSet" id=2]
+[ext_resource path="res://code/tile_map/TileMap.gd" type="Script" id=3]
+[ext_resource path="res://demo_scence/purpul_mana/purpul_mana.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/wizard/enemy(wizard).gd" type="Script" id=5]
+[ext_resource path="res://sprits/wizard_enemy/wizard_test2.png" type="Texture" id=6]
+[ext_resource path="res://sprits/wizard_enemy/wizard_test.png" type="Texture" id=7]
+[ext_resource path="res://enemy.gd" type="Script" id=8]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack1.png" type="Texture" id=9]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack2.png" type="Texture" id=10]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack3.png" type="Texture" id=11]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack4.png" type="Texture" id=12]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack5.png" type="Texture" id=13]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack6.png" type="Texture" id=14]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack7.png" type="Texture" id=15]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack8.png" type="Texture" id=16]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack9.png" type="Texture" id=17]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack10.png" type="Texture" id=18]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack11.png" type="Texture" id=19]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack12.png" type="Texture" id=20]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack13.png" type="Texture" id=21]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack14.png" type="Texture" id=22]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack15.png" type="Texture" id=23]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack16.png" type="Texture" id=24]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack17.png" type="Texture" id=25]
+[ext_resource path="res://sprits/anime/attack/Skeleton Attack18.png" type="Texture" id=26]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk1.png" type="Texture" id=27]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk2.png" type="Texture" id=28]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk3.png" type="Texture" id=29]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk4.png" type="Texture" id=30]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk5.png" type="Texture" id=31]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk6.png" type="Texture" id=32]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk7.png" type="Texture" id=33]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk9.png" type="Texture" id=34]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk10.png" type="Texture" id=35]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk8.png" type="Texture" id=36]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk11.png" type="Texture" id=37]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk12.png" type="Texture" id=38]
+[ext_resource path="res://sprits/anime/walk/Skeleton Walk13.png" type="Texture" id=39]
+[ext_resource path="res://player.tscn" type="PackedScene" id=40]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 23.8759
+height = 48.0529
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( -7.47224, 10.7934 )
+b = Vector2( -969.822, 10.9968 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( 14.7085, 1.4727 )
+b = Vector2( 1171.95, 2.00311 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "attack",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 21.9943
+height = 46.374
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 6112.0
+margin_top = 1152.0
+margin_right = 6436.0
+margin_bottom = 1249.0
+custom_fonts/font = SubResource( 1 )
+text = "click \"j\" to shot 
+     fire balls"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 327674, 1, 5, 393210, 1, 65541, 458746, 1, 65541, 524282, 1, 65541, 589818, 1, 65541, 655354, 1, 65541, 720890, 1, 65541, 786426, 1, 65541, 851962, 1, 65541, 917498, 1, 65541, 983034, 1, 65541, 917627, 1, 5, 917633, 1, 6, 917634, 1, 196609, 917635, 1, 196609, 917636, 1, 196609, 917637, 1, 7, 1048570, 1, 65541, 983065, 1, 6, 983066, 1, 196609, 983067, 1, 196609, 983068, 1, 196609, 983069, 1, 7, 983080, 1, 6, 983081, 1, 196609, 983082, 1, 196609, 983083, 1, 196609, 983084, 1, 7, 983159, 1, 6, 983160, 1, 196609, 983161, 1, 196609, 983162, 1, 196609, 983163, 1, 196611, 983164, 1, 196609, 983165, 1, 196609, 983166, 1, 196609, 983167, 1, 196609, 983168, 1, 196609, 983169, 1, 65543, 983173, 1, 65542, 983174, 1, 196609, 983175, 1, 196609, 983176, 1, 196609, 983177, 1, 196609, 983178, 1, 196609, 983179, 1, 196609, 983180, 1, 196609, 983181, 1, 196609, 983182, 1, 196609, 983183, 1, 196609, 983184, 1, 196609, 983185, 1, 196609, 983186, 1, 196609, 983187, 1, 196609, 983188, 1, 196609, 983189, 1, 196609, 983190, 1, 196609, 983191, 1, 196609, 983192, 1, 196609, 983193, 1, 196609, 983194, 1, 196609, 983195, 1, 196609, 983196, 1, 196609, 983197, 1, 196609, 983198, 1, 196609, 983199, 1, 196609, 983200, 1, 196609, 983201, 1, 196609, 983202, 1, 196609, 983203, 1, 196609, 983204, 1, 196609, 983205, 1, 196609, 983206, 1, 196609, 983207, 1, 196609, 983208, 1, 196609, 983209, 1, 196609, 983210, 1, 196609, 983211, 1, 196609, 983212, 1, 196609, 983213, 1, 196609, 983214, 1, 196609, 983215, 1, 196609, 983216, 1, 196609, 983217, 1, 196609, 983218, 1, 196609, 983219, 1, 196609, 983220, 1, 196609, 983221, 1, 196609, 983222, 1, 196609, 983223, 1, 196609, 983224, 1, 196609, 983225, 1, 196609, 983226, 1, 196609, 983227, 1, 196609, 983228, 1, 196609, 983229, 1, 196609, 983230, 1, 196609, 983231, 1, 196609, 983232, 1, 196609, 983233, 1, 7, 1114106, 1, 65542, 1114107, 1, 196609, 1114108, 1, 196609, 1114109, 1, 196609, 1114110, 1, 196609, 1114111, 1, 196609, 1048576, 1, 196609, 1048577, 1, 196609, 1048578, 1, 196609, 1048579, 1, 196609, 1048580, 1, 196609, 1048581, 1, 196609, 1048582, 1, 196609, 1048583, 1, 196609, 1048584, 1, 196609, 1048585, 1, 196609, 1048586, 1, 196609, 1048587, 1, 196609, 1048588, 1, 196609, 1048589, 1, 196609, 1048590, 1, 196609, 1048591, 1, 196609, 1048592, 1, 196609, 1048593, 1, 196609, 1048594, 1, 196609, 1048595, 1, 196609, 1048596, 1, 196609, 1048597, 1, 196609, 1048598, 1, 196609, 1048599, 1, 196609, 1048600, 1, 196609, 1048601, 1, 65543, 1048605, 1, 65542, 1048606, 1, 196609, 1048607, 1, 196609, 1048608, 1, 196609, 1048609, 1, 196609, 1048610, 1, 196609, 1048611, 1, 196609, 1048612, 1, 196609, 1048613, 1, 196609, 1048614, 1, 196609, 1048615, 1, 196609, 1048616, 1, 65543, 1048620, 1, 65542, 1048621, 1, 196609, 1048622, 1, 196609, 1048623, 1, 196609, 1048624, 1, 196609, 1048625, 1, 196609, 1048626, 1, 196609, 1048627, 1, 196609, 1048628, 1, 196609, 1048629, 1, 196609, 1048630, 1, 196609, 1048631, 1, 196609, 1048632, 1, 196609, 1048633, 1, 196609, 1048634, 1, 196609, 1048635, 1, 7, 1048695, 1, 65541, 1048769, 1, 65541, 1114171, 1, 65541, 1114231, 1, 65541, 1114305, 1, 65541, 1179707, 1, 65541, 1179747, 1, 6, 1179748, 1, 196609, 1179749, 1, 196609, 1179750, 1, 196609, 1179751, 1, 196609, 1179752, 1, 196609, 1179753, 1, 196609, 1179754, 1, 196609, 1179755, 1, 196609, 1179756, 1, 196609, 1179757, 1, 196609, 1179758, 1, 196609, 1179759, 1, 196609, 1179760, 1, 196609, 1179761, 1, 7, 1179767, 1, 131077, 1179841, 1, 65541, 1245243, 1, 65541, 1245283, 1, 65541, 1245297, 1, 65541, 1245377, 1, 65541, 1310779, 1, 65541, 1310819, 1, 65541, 1310833, 1, 65541, 1310913, 1, 65541, 1376315, 1, 65542, 1376316, 1, 196609, 1376317, 1, 196609, 1376318, 1, 196609, 1376319, 1, 196609, 1376320, 1, 196609, 1376321, 1, 196609, 1376322, 1, 196609, 1376323, 1, 196609, 1376324, 1, 196609, 1376325, 1, 196609, 1376326, 1, 196609, 1376327, 1, 196609, 1376328, 1, 196609, 1376329, 1, 196609, 1376330, 1, 196609, 1376331, 1, 196609, 1376332, 1, 196609, 1376333, 1, 196609, 1376334, 1, 196609, 1376335, 1, 196609, 1376336, 1, 196609, 1376337, 1, 196609, 1376338, 1, 196609, 1376339, 1, 196609, 1376340, 1, 196609, 1376341, 1, 196609, 1376342, 1, 196609, 1376343, 1, 196609, 1376344, 1, 196609, 1376345, 1, 196609, 1376346, 1, 196609, 1376347, 1, 196609, 1376348, 1, 196609, 1376349, 1, 196609, 1376350, 1, 196609, 1376351, 1, 196609, 1376352, 1, 196609, 1376353, 1, 196609, 1376354, 1, 196609, 1376355, 1, 65543, 1376369, 1, 65542, 1376370, 1, 196609, 1376371, 1, 196609, 1376372, 1, 196609, 1376373, 1, 196609, 1376374, 1, 196609, 1376375, 1, 7, 1376449, 1, 65541, 1441911, 1, 65541, 1441985, 1, 65541, 1507447, 1, 65542, 1507448, 1, 196609, 1507449, 1, 196609, 1507450, 1, 196609, 1507451, 1, 196609, 1507452, 1, 196609, 1507453, 1, 196609, 1507454, 1, 196609, 1507455, 1, 196609, 1507456, 1, 196609, 1507457, 1, 196609, 1507458, 1, 196609, 1507459, 1, 196609, 1507460, 1, 196609, 1507461, 1, 196609, 1507462, 1, 10, 1507463, 1, 65536, 1507464, 1, 65536, 1507465, 1, 9, 1507466, 1, 196609, 1507467, 1, 196609, 1507468, 1, 196609, 1507469, 1, 196609, 1507470, 1, 196609, 1507471, 1, 196609, 1507472, 1, 196609, 1507473, 1, 196609, 1507474, 1, 196609, 1507475, 1, 196609, 1507476, 1, 196609, 1507477, 1, 196609, 1507478, 1, 196609, 1507479, 1, 196609, 1507480, 1, 196609, 1507481, 1, 196609, 1507482, 1, 196609, 1507483, 1, 196609, 1507484, 1, 196609, 1507485, 1, 196609, 1507486, 1, 196609, 1507487, 1, 196609, 1507488, 1, 196609, 1507489, 1, 196609, 1507490, 1, 196609, 1507491, 1, 196609, 1507492, 1, 196609, 1507493, 1, 196609, 1507494, 1, 196609, 1507495, 1, 196609, 1507496, 1, 196609, 1507497, 1, 196609, 1507498, 1, 196609, 1507499, 1, 196609, 1507500, 1, 196609, 1507501, 1, 196609, 1507502, 1, 196609, 1507503, 1, 196609, 1507504, 1, 196609, 1507505, 1, 196609, 1507506, 1, 196609, 1507507, 1, 196609, 1507508, 1, 196609, 1507509, 1, 196609, 1507510, 1, 196609, 1507511, 1, 10, 1507512, 1, 65536, 1507513, 1, 9, 1507514, 1, 196609, 1507515, 1, 196609, 1507516, 1, 196609, 1507517, 1, 196609, 1507518, 1, 196609, 1507519, 1, 196609, 1507520, 1, 196609, 1507521, 1, 65543, 1572998, 1, 65537, 1572999, 1, 131072, 1573000, 1, 131072, 1573001, 1, 65538, 1573047, 1, 65537, 1573048, 1, 131072, 1573049, 1, 65538 )
+script = ExtResource( 3 )
+x = 96563
+
+[node name="purpul_mana" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="purpul_mana" parent="purpul_mana" instance=ExtResource( 4 )]
+position = Vector2( 10621.7, 1345.09 )
+
+[node name="purpul_mana2" parent="purpul_mana" instance=ExtResource( 4 )]
+position = Vector2( 10388.6, 1344.14 )
+
+[node name="purpul_mana3" parent="purpul_mana" instance=ExtResource( 4 )]
+position = Vector2( 10504.1, 1345.09 )
+
+[node name="wizard(enemy)" type="KinematicBody2D" parent="." groups=[
+"enemy",
+]]
+editor/display_folded = true
+position = Vector2( 1216, 768 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="wizard(enemy)"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wizard(enemy)"]
+shape = SubResource( 3 )
+
+[node name="RayCast2D" type="RayCast2D" parent="wizard(enemy)"]
+position = Vector2( -22.7013, 0.463295 )
+enabled = true
+
+[node name="wall_wait" type="Timer" parent="wizard(enemy)"]
+wait_time = 0.2
+one_shot = true
+
+[node name="choting_distance_left" type="RayCast2D" parent="wizard(enemy)"]
+position = Vector2( -0.39978, 0.174561 )
+rotation = 1.5708
+scale = Vector2( 3.29476, 20.0311 )
+enabled = true
+
+[node name="choting_distance_right" type="RayCast2D" parent="wizard(enemy)"]
+position = Vector2( -2.78918, 2.78958 )
+rotation = -1.5708
+scale = Vector2( -1.60817, 23.5073 )
+enabled = true
+
+[node name="mana_position" type="Position2D" parent="wizard(enemy)"]
+position = Vector2( -34.0093, 3.8147e-06 )
+
+[node name="Area_left" type="Area2D" parent="wizard(enemy)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wizard(enemy)/Area_left"]
+position = Vector2( -28.9855, -12.2359 )
+shape = SubResource( 4 )
+
+[node name="Area_right" type="Area2D" parent="wizard(enemy)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wizard(enemy)/Area_right"]
+shape = SubResource( 5 )
+
+[node name="ball_wait" type="Timer" parent="wizard(enemy)"]
+wait_time = 3.0
+one_shot = true
+
+[node name="choting_wait" type="Timer" parent="wizard(enemy)"]
+one_shot = true
+
+[node name="enemy" type="KinematicBody2D" parent="." groups=[
+"enemy",
+]]
+editor/display_folded = true
+position = Vector2( 807.495, 896 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy"]
+frames = SubResource( 6 )
+animation = "attack"
+frame = 17
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2( -3.64283, 20.754 )
+shape = SubResource( 7 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy"]
+position = Vector2( 14.966, 0.784277 )
+scale = Vector2( 1, 1.36 )
+enabled = true
+
+[node name="Timer" type="Timer" parent="enemy"]
+wait_time = 1.21
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="enemy"]
+wait_time = 0.75
+one_shot = true
+
+[node name="Tween" type="Tween" parent="enemy"]
+
+[node name="Timer3" type="Timer" parent="enemy"]
+wait_time = 0.25
+one_shot = true
+
+[node name="player" parent="." instance=ExtResource( 40 )]
+[connection signal="timeout" from="wizard(enemy)/wall_wait" to="wizard(enemy)" method="_on_wall_wait_timeout"]
+[connection signal="body_entered" from="wizard(enemy)/Area_left" to="wizard(enemy)" method="_on_Area_left_body_entered"]
+[connection signal="body_exited" from="wizard(enemy)/Area_left" to="wizard(enemy)" method="_on_Area_left_body_exited"]
+[connection signal="body_entered" from="wizard(enemy)/Area_right" to="wizard(enemy)" method="_on_Area_right_body_entered"]
+[connection signal="body_exited" from="wizard(enemy)/Area_right" to="wizard(enemy)" method="_on_Area_right_body_exited"]
+[connection signal="timeout" from="wizard(enemy)/ball_wait" to="wizard(enemy)" method="_on_ball_wait_timeout"]
+[connection signal="timeout" from="wizard(enemy)/choting_wait" to="wizard(enemy)" method="_on_choting_wait_timeout"]
+[connection signal="timeout" from="enemy/Timer" to="enemy" method="_on_Timer_timeout"]
+[connection signal="timeout" from="enemy/Timer2" to="enemy" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="enemy/Timer3" to="enemy" method="_on_Timer3_timeout"]
